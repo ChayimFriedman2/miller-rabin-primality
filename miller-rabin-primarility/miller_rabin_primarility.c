@@ -6,7 +6,7 @@
 typedef enum { TRUE = 1, FALSE = 0 } Bool;
 
 
-long long GCD(unsigned long long a, unsigned long long b)
+unsigned long long GCD(unsigned long long a, unsigned long long b)
 {
     while (0 != b)
     {
