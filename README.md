@@ -5,6 +5,7 @@ A Python library to check primality of numbers using the Miller-Rabin Algorithm 
 ## Installation
 
 Install using pip.
+
 `pip install miller-rabin-primality`
 
 ## Using
