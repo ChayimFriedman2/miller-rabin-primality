@@ -32,11 +32,6 @@ unsigned long long ModularPower(unsigned long long base, unsigned long long expo
     return result;
 }
 
-PyDoc_STRVAR(is_prime_doc, "is_prime(number, repeat_percents=0.5, /)\n"
-"--\n"
-"Returns True when number is a prime, and false otherwise.\n"
-"Makes 'repeat_percents' iterations, as a fraction. Should be between 0 and 1.");
-
 Bool TestOneCase(const unsigned long long powerExponent, const unsigned long long number)
 {
     unsigned long long powerBase = (rand() % (number - 4)) + 2;
@@ -51,6 +46,11 @@ unsigned long long GetPowerExponent(const unsigned long long number)
     }
     return result;
 }
+
+PyDoc_STRVAR(is_prime_doc, "is_prime(number, repeat_percents=0.5, /)\n"
+"--\n"
+"Returns True when number is a prime, and false otherwise.\n"
+"Makes 'repeat_percents' iterations, as a fraction. Should be between 0 and 1.");
 
 PyObject * is_prime(PyObject *self, PyObject *args)
 {
