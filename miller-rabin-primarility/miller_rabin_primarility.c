@@ -1,7 +1,6 @@
 #include <Python.h>
 #include <stdlib.h>
 #include <time.h>
-#include "miller_rabin_primarility.h"
 
 
 typedef enum { TRUE = 1, FALSE = 0 } Bool;
