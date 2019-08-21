@@ -83,6 +83,17 @@ PyObject * is_prime(PyObject *self, PyObject *args)
         return NULL;
     }
 
+    if (number <= 1)
+    {
+        PyErr_SetString(PyExc_ValueError, "Cannot determine primality for <=1");
+        return NULL;
+    }
+
+    if (number <= 3)
+    {
+        return PyBool_FromLong(TRUE);
+    }
+
     const unsigned long long powerExponent = GetPowerExponent(number);
 
     const int repeatTimes = (int)(repeatPercents * number);
