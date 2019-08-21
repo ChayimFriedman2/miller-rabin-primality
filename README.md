@@ -12,7 +12,7 @@ Install using pip.
 
 Example:
 ```python3
-from miller-rabin-primality import is_prime
+from miller_rabin_primality import is_prime
 
 print(is_prime(53446463))
 ```
