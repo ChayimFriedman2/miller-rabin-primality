@@ -7,7 +7,7 @@ A Python library to check primality of numbers using the Miller-Rabin Algorithm.
 Install using pip.
 `pip install miller-rabin-primality`
 
-# Using
+## Using
 
 Example:
 ```python3
