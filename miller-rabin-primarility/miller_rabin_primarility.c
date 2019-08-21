@@ -60,7 +60,7 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
         return NULL;
     }
 
-    unsigned long long powerBase = (rand() % (number - 2)) + 2;
+    unsigned long long powerBase = (rand() % (number - 4)) + 2;
 
     if (!AreCoprimeNumbers(number, powerBase))
     {
