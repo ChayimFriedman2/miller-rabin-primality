@@ -12,7 +12,7 @@ typedef enum { TRUE = 1, FALSE = 0 } Bool;
 
 
 unsigned long long ModularPower(unsigned long long base, unsigned long long exponent,
-    unsigned long long modulu)
+    const unsigned long long modulu)
 {
     unsigned long long result = 1;
 
@@ -37,12 +37,12 @@ PyDoc_STRVAR(is_prime_doc, "is_prime(number, repeat_percents=0.5, /)\n"
 "Returns True when number is a prime, and false otherwise.\n"
 "Makes 'repeat_percents' iterations, as a fraction. Should be between 0 and 1.");
 
-Bool TestOneCase(unsigned long long powerExponent, unsigned long long number)
+Bool TestOneCase(const unsigned long long powerExponent, const unsigned long long number)
 {
     unsigned long long powerBase = (rand() % (number - 4)) + 2;
 }
 
-unsigned long long GetPowerExponent(unsigned long long number)
+unsigned long long GetPowerExponent(const unsigned long long number)
 {
     unsigned long long result = number - 1;
     while (EVEN(result))
