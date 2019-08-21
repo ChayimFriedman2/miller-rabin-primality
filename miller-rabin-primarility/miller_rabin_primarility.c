@@ -1,6 +1,9 @@
 #include <Python.h>
 
 
+typedef enum { TRUE = 1, FALSE = 0 } Bool;
+
+
 long long GCD(long long a, long long b)
 {
     while (0 != b)
