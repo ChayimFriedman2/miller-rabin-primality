@@ -42,6 +42,16 @@ Bool TestOneCase(unsigned long long powerExponent, unsigned long long number)
     unsigned long long powerBase = (rand() % (number - 4)) + 2;
 }
 
+unsigned long long GetPowerExponent(unsigned long long number)
+{
+    unsigned long long result = number - 1;
+    while (EVEN(result))
+    {
+        result >>= 2; // result /= 2;
+    }
+    return result;
+}
+
 PyObject * is_prime(PyObject *self, PyObject *args)
 {
     unsigned long long number = 0;
@@ -57,6 +67,8 @@ PyObject * is_prime(PyObject *self, PyObject *args)
         PyErr_SetString(PyExc_ValueError, "The parameter 'repeat_percents' should be between 0 and 1");
         return NULL;
     }
+
+    const unsigned long long powerExponent = GetPowerExponent(number);
 
     const int repeatTimes = (int)(repeatPercents * number);
 
