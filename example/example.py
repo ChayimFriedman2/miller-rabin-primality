@@ -1,12 +1,10 @@
-import itertools
-
 from miller_rabin_primarility import is_prime
 
 
 def at(iterable, index):
     iterator = iter(iterable)
     try:
-        for i in range(index):
+        for i in range(index + 1):
             result = next(iterator)
     except StopIteration:
         return None
