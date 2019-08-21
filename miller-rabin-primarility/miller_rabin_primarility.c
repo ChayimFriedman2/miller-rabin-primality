@@ -37,6 +37,8 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
 
     srand((unsigned)time(NULL));
 
+    unsigned long long powerBase = (rand() % (number - 2)) + 2;
+
     Py_RETURN_NONE;
 }
 
