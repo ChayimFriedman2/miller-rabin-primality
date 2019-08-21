@@ -5,7 +5,7 @@
 typedef enum { TRUE = 1, FALSE = 0 } Bool;
 
 
-long long GCD(long long a, long long b)
+long long GCD(unsigned long long a, unsigned long long b)
 {
     while (0 != b)
     {
@@ -16,7 +16,7 @@ long long GCD(long long a, long long b)
     return a;
 }
 
-Bool AreCoprimeNumbers(long long a, long long b)
+Bool AreCoprimeNumbers(unsigned long long a, unsigned long long b)
 {
     return GCD(a, b) == 1;
 }
@@ -27,7 +27,7 @@ PyDoc_STRVAR(is_prime_doc, "is_prime(number, /)\n"
 
 PyObject * is_prime(PyObject *self, PyObject *oNumber)
 {
-    long long number = PyLong_AsLongLong(oNumber);
+    unsigned long long number = PyLong_AsUnsignedLongLong(oNumber);
 
     if (PyErr_Occurred())
     {
