@@ -192,6 +192,9 @@
   <ItemGroup>
     <ClCompile Include="miller_rabin_primarility.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="miller_rabin_primarility.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,6 +1,7 @@
 #include <Python.h>
 #include <stdlib.h>
 #include <time.h>
+#include "miller_rabin_primarility.h"
 
 
 typedef enum { TRUE = 1, FALSE = 0 } Bool;
@@ -31,27 +32,40 @@ unsigned long long ModularPower(unsigned long long base, unsigned long long expo
     return result;
 }
 
-PyDoc_STRVAR(is_prime_doc, "is_prime(number, /)\n"
+PyDoc_STRVAR(is_prime_doc, "is_prime(number, repeat_percents=0.5, /)\n"
 "--\n"
-"Returns True when number is a prime, and false otherwise.");
+"Returns True when number is a prime, and false otherwise.\n"
+"Makes 'repeat_percents' iterations, as a fraction. Should be between 0 and 1.");
 
-PyObject * is_prime(PyObject *self, PyObject *oNumber)
+Bool TestOneCase(unsigned long long powerExponent, unsigned long long number)
 {
-    unsigned long long number = PyLong_AsUnsignedLongLong(oNumber);
+    unsigned long long powerBase = (rand() % (number - 4)) + 2;
+}
 
-    if (PyErr_Occurred())
+PyObject * is_prime(PyObject *self, PyObject *args)
+{
+    unsigned long long number = 0;
+    double repeatPercents = 0.25;
+
+    if (!PyArg_ParseTuple(args, "K|d", &number, &repeatPercents))
     {
         return NULL;
     }
 
-    unsigned long long powerBase = (rand() % (number - 4)) + 2;
+    if (repeatPercents < 0 || 1 < repeatPercents)
+    {
+        PyErr_SetString(PyExc_ValueError, "The parameter 'repeat_percents' should be between 0 and 1");
+        return NULL;
+    }
+
+    const int repeatTimes = (int)(repeatPercents * number);
 
     Py_RETURN_NONE;
 }
 
 
 static PyMethodDef miller_rabin_primarility_functions[] = {
-    { "is_prime", (PyCFunction)is_prime, METH_O, is_prime_doc },
+    { "is_prime", (PyCFunction)is_prime, METH_VARARGS, is_prime_doc },
 
     { NULL, NULL, 0, NULL } /* marks end of array */
 };
