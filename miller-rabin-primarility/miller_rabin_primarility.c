@@ -14,7 +14,7 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
 
 
 static PyMethodDef miller_rabin_primarility_functions[] = {
-    { "is_prime", (PyCFunction)is_prime, METH_O, is_prime },
+    { "is_prime", (PyCFunction)is_prime, METH_O, is_prime_doc },
 
     { NULL, NULL, 0, NULL } /* marks end of array */
 };
