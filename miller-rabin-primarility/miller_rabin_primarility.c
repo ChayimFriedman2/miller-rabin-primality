@@ -60,8 +60,6 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
         return NULL;
     }
 
-    srand((unsigned)time(NULL));
-
     unsigned long long powerBase = (rand() % (number - 2)) + 2;
 
     if (!AreCoprimeNumbers(number, powerBase))
@@ -112,5 +110,9 @@ static PyModuleDef miller_rabin_primarility_def = {
 
 PyMODINIT_FUNC PyInit_miller_rabin_primarility()
 {
+    Py_Initialize();
+
+    srand((unsigned)time(NULL));
+
     return PyModuleDef_Init(&miller_rabin_primarility_def);
 }
