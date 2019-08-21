@@ -45,7 +45,7 @@ Bool TestOneCase(unsigned long long powerExponent, const unsigned long long numb
     while ((number - 1) != powerExponent && 1 != powerResult && (number - 1) != powerResult)
     {
         powerResult = (powerResult * powerResult) % number;
-        powerExponent <<= 2; // powerExponent *= 2;
+        powerExponent <<= 1; // powerExponent *= 2;
     }
 
     return (number - 1) == powerResult;
@@ -56,7 +56,7 @@ unsigned long long GetPowerExponent(const unsigned long long number)
     unsigned long long result = number - 1;
     while (EVEN(result))
     {
-        result >>= 2; // result /= 2;
+        result >>= 1; // result /= 2;
     }
     return result;
 }
