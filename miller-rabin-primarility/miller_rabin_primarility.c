@@ -10,22 +10,6 @@ typedef enum { TRUE = 1, FALSE = 0 } Bool;
 #define EVEN(num) (!ODD(num))
 
 
-unsigned long long GCD(unsigned long long a, unsigned long long b)
-{
-    while (0 != b)
-    {
-        unsigned long long temp = a % b;
-        a = b;
-        b = temp;
-    }
-    return a;
-}
-
-Bool AreCoprimeNumbers(unsigned long long a, unsigned long long b)
-{
-    return GCD(a, b) == 1;
-}
-
 unsigned long long ModularPower(unsigned long long base, unsigned long long exponent,
     unsigned long long modulu)
 {
@@ -61,11 +45,6 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
     }
 
     unsigned long long powerBase = (rand() % (number - 4)) + 2;
-
-    if (!AreCoprimeNumbers(number, powerBase))
-    {
-        return PyBool_FromLong(FALSE);
-    }
 
     Py_RETURN_NONE;
 }
