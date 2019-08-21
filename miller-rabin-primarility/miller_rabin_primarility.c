@@ -71,8 +71,14 @@ PyObject * is_prime(PyObject *self, PyObject *args)
     const unsigned long long powerExponent = GetPowerExponent(number);
 
     const int repeatTimes = (int)(repeatPercents * number);
-
-    Py_RETURN_NONE;
+    for (int i = 0; i < repeatTimes; i++)
+    {
+        if (!TestOneCase(powerExponent, number))
+        {
+            return PyBool_FromLong(FALSE);
+        }
+    }
+    return PyBool_FromLong(TRUE);
 }
 
 
