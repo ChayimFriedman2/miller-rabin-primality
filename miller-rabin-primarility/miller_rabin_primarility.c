@@ -10,7 +10,7 @@ long long GCD(unsigned long long a, unsigned long long b)
 {
     while (0 != b)
     {
-        int temp = a % b;
+        unsigned long long temp = a % b;
         a = b;
         b = temp;
     }
