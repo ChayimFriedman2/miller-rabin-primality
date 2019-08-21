@@ -26,6 +26,27 @@ Bool AreCoprimeNumbers(unsigned long long a, unsigned long long b)
     return GCD(a, b) == 1;
 }
 
+unsigned long long ModularPower(unsigned long long base, unsigned long long exponent,
+    unsigned long long modulu)
+{
+    unsigned long long result = 1;
+
+    base %= modulu;
+
+    while (0 < exponent)
+    {
+        if (ODD(exponent))
+        {
+            result = (result * base) % modulu;
+        }
+
+        exponent >>= 1; // exponent /= 2;
+        base = (base * base) % modulu;
+    }
+
+    return result;
+}
+
 PyDoc_STRVAR(is_prime_doc, "is_prime(number, /)\n"
 "--\n"
 "Returns True when number is a prime, and false otherwise.");
