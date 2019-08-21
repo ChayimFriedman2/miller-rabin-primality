@@ -1,6 +1,17 @@
 #include <Python.h>
 
 
+long long GCD(long long a, long long b)
+{
+    while (0 != b)
+    {
+        int temp = a % b;
+        a = b;
+        b = temp;
+    }
+    return a;
+}
+
 PyDoc_STRVAR(is_prime_doc, "is_prime(number, /)\n"
 "--\n"
 "Returns True when number is a prime, and false otherwise.");
