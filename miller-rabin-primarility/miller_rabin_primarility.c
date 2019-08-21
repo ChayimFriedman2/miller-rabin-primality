@@ -1,5 +1,6 @@
 #include <Python.h>
 #include <stdlib.h>
+#include <time.h>
 
 
 typedef enum { TRUE = 1, FALSE = 0 } Bool;
@@ -33,6 +34,8 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
     {
         return NULL;
     }
+
+    srand((unsigned)time(NULL));
 
     Py_RETURN_NONE;
 }
