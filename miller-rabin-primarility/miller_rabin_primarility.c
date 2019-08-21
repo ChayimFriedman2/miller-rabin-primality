@@ -39,6 +39,11 @@ PyObject * is_prime(PyObject *self, PyObject *oNumber)
 
     unsigned long long powerBase = (rand() % (number - 2)) + 2;
 
+    if (!AreCoprimeNumbers(number, powerBase))
+    {
+        return PyBool_FromLong(FALSE);
+    }
+
     Py_RETURN_NONE;
 }
 
