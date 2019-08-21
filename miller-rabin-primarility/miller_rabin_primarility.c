@@ -1,4 +1,5 @@
 #include <Python.h>
+#include <stdlib.h>
 
 
 typedef enum { TRUE = 1, FALSE = 0 } Bool;
@@ -27,6 +28,11 @@ PyDoc_STRVAR(is_prime_doc, "is_prime(number, /)\n"
 PyObject * is_prime(PyObject *self, PyObject *oNumber)
 {
     long long number = PyLong_AsLongLong(oNumber);
+
+    if (PyErr_Occurred())
+    {
+        return NULL;
+    }
 
     Py_RETURN_NONE;
 }
