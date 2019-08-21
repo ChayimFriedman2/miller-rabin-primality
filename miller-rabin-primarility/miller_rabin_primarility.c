@@ -15,6 +15,11 @@ long long GCD(long long a, long long b)
     return a;
 }
 
+Bool AreCoprimeNumbers(long long a, long long b)
+{
+    return GCD(a, b) == 1;
+}
+
 PyDoc_STRVAR(is_prime_doc, "is_prime(number, /)\n"
 "--\n"
 "Returns True when number is a prime, and false otherwise.");
