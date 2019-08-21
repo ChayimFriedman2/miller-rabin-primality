@@ -88,7 +88,12 @@ PyObject * is_prime(PyObject *self, PyObject *args)
         return NULL;
     }
 
-    if (number <= 3)
+    if (4 == number)
+    {
+        return PyBool_FromLong(FALSE);
+    }
+
+    if (number <= 5)
     {
         return PyBool_FromLong(TRUE);
     }
