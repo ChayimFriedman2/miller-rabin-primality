@@ -31,7 +31,7 @@ int exec_miller_rabin_primarility(PyObject *module)
     return 0; /* success */
 }
 
-PyDoc_STRVAR(miller_rabin_primarility_doc, "A function checks for primarility using the Miller-Rabin Algorithm.");
+PyDoc_STRVAR(miller_rabin_primarility_doc, "A function checks for primality using the Miller-Rabin Algorithm.");
 
 static PyModuleDef_Slot miller_rabin_primarility_slots[] = {
     { Py_mod_exec, exec_miller_rabin_primarility },
@@ -40,7 +40,7 @@ static PyModuleDef_Slot miller_rabin_primarility_slots[] = {
 
 static PyModuleDef miller_rabin_primarility_def = {
     PyModuleDef_HEAD_INIT,
-    "miller_rabin_primarility",
+    "miller_rabin_primality",
     miller_rabin_primarility_doc,
     0,              /* m_size */
     NULL,           /* m_methods */
