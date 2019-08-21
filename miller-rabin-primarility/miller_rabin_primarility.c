@@ -32,9 +32,24 @@ unsigned long long ModularPower(unsigned long long base, unsigned long long expo
     return result;
 }
 
-Bool TestOneCase(const unsigned long long powerExponent, const unsigned long long number)
+Bool TestOneCase(unsigned long long powerExponent, const unsigned long long number)
 {
-    unsigned long long powerBase = (rand() % (number - 4)) + 2;
+    const unsigned long long powerBase = (rand() % (number - 4)) + 2;
+
+    unsigned long long powerResult = ModularPower(powerBase, powerExponent, number);
+
+    if (1 == powerResult || (number - 1) == powerResult)
+    {
+        return TRUE;
+    }
+
+    while ((number - 1) != powerExponent && 1 != powerResult && (number - 1) != powerResult)
+    {
+        powerResult = (powerResult * powerResult) % number;
+        powerExponent <<= 2; // powerExponent *= 2;
+    }
+
+    return (number - 1) == powerResult;
 }
 
 unsigned long long GetPowerExponent(const unsigned long long number)
